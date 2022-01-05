@@ -20,7 +20,7 @@ namespace SchoolLibrary.DTO
         [Required]
         [DataType(DataType.Date)]
         [Display(Name = "Author BirthDate")]
-        [Range(typeof(DateTime), "1/1/1500", "12/31/2022", ErrorMessage = "Value for {0} must be between {1} and {2}")]
+        [Range(typeof(DateTime), "1/1/1500", "1/1/2099", ErrorMessage = "Value for {0} must be between {1} and {2}")]
 
         public DateTime BirthDateAuthor { get; set; } = DateTime.Now;
 
@@ -38,7 +38,7 @@ namespace SchoolLibrary.DTO
         [Required]        
        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy}")]
         [Display(Name = "Release Date")]
-        [Range(typeof(DateTime), "1/1/1500", "12/31/2022", ErrorMessage = "Value for {0} must be between {1} and {2}")]
+        [Range(typeof(DateTime), "1/1/1500", "1/1/2099", ErrorMessage = "Value for {0} must be between {1} and {2}")]
 
         public DateTime DateRelease { get; set; } = DateTime.Now;
     }
