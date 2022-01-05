@@ -1,0 +1,62 @@
+﻿@model List<SchoolLibrary.DTO.BookLoanDTO>
+@{
+    ViewBag.Title = "Book Loan";
+}
+
+<h2>Book Loans</h2>
+
+<div>
+    <a class="btn btn-success" href="~/BookLoan/CreateBookLoan"> Create</a>
+
+
+</div>
+<div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Student Name</th>
+                <th scope="col">Book Title</th>
+                <th scope="col">Check-Out</th>
+                <th scope="col">Return Date</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var m in Model)
+            {
+                <tr>
+                    <td scope="row">@(m.Student.Name)</td>
+                    <td>@(m.Book.BookTitle)</td>
+                    <td>@(m.DateCheckOut)</td>
+                    <td>@(m.DateReturn)</td>
+                    <td>
+                        <button type="button" class="btn btn-xs btn-warning" data-toggle="modal" data-target="#myModal">Edit</button>/
+                        <button type="button" class="btn btn-xs btn-danger" data-toggle="modal" data-target="#myModal">Delete</button>
+                    </td>
+
+
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade bootstrap" id="myModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Pending Section</h4>
+            </div>
+            <div class="modal-body">
+                <p>According requeriments , This implementation state is pending.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

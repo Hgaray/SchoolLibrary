@@ -1,0 +1,44 @@
+﻿@model SchoolLibrary.VM.BookLoanVM
+@{
+    ViewBag.Title = "CreateBookLoan";
+}
+
+<h2>Create Book Loan</h2>
+
+<div class="col-md-10">
+    @using (Html.BeginForm("SaveBookLoan", "BookLoan", FormMethod.Post))
+    {       
+        <div class="row">
+            <label class="col-md-2">Student Name:</label>
+            <div class="col-md-10">
+               
+                @Html.DropDownListFor(x => x.BookLoan.StudentId, new SelectList(Model.Students, "Value", "Text", Model.BookLoan.StudentId))
+            </div>
+        </div>
+        <div class="row">
+            <label class="col-md-2">Book - Author:</label>
+            <div class="col-md-10">
+                
+                @Html.DropDownListFor(x => x.BookLoan.BookId, new SelectList(Model.Books, "Value", "Text", Model.BookLoan.BookId))
+            </div>
+        </div>
+
+        <div class="row">
+            @Html.LabelFor(x => x.BookLoan.DateCheckOut, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(x => x.BookLoan.DateCheckOut, new { htmlAttributes = new { @class = "form-control", @type = "date", @Value = Model.BookLoan.DateCheckOut.ToString("yyyy-MM-dd") } })
+                @Html.ValidationMessageFor(x => x.BookLoan.DateCheckOut, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="row">
+            @Html.LabelFor(x => x.BookLoan.DateReturn, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(x => x.BookLoan.DateReturn, new { htmlAttributes = new { @class = "form-control", @type = "date", @Value = Model.BookLoan.DateReturn.ToString("yyyy-MM-dd") } })
+                @Html.ValidationMessageFor(x => x.BookLoan.DateReturn, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <input type="submit" value="Save" />
+    }
+</div>

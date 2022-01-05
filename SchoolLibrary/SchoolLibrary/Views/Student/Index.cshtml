@@ -1,0 +1,46 @@
+﻿@model List<SchoolLibrary.DTO.StudentDto>
+@{
+    ViewBag.Title = "Student";
+}
+
+<h2 class="page-header">
+    Student
+</h2>
+<div>
+    <a class="btn btn-success" href="~/Student/CreateStudent"> Create</a>
+
+
+</div>
+<div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">LastName</th>
+                <th scope="col">Identification</th>
+                <th scope="col">Program</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var m in Model)
+            {
+                <tr>
+                    <td scope="row">@(m.Name)</td>
+                    <td>@(m.LastName)</td>
+                    <td>@(m.Identification)</td>
+                    <td>@(m.Program)</td>
+                    <td>
+                        <a class="btn btn-xs btn-warning" href="~/Student/ModifyStudent?studentId=@m.Id"> Edit</a>/
+                        <a class="btn btn-xs btn-danger" href="~/Student/DeleteStudent?studentId=@m.Id"> Delete</a>
+                    </td>
+
+
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>
+
+
